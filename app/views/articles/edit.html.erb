@@ -1,0 +1,17 @@
+<div id="article_wrap">
+  <%= form_tag("/articles/#{@article.id}/update") do %>
+    <p>タイトル</p>
+    <input name="title" value="<%= @article.title %>">
+    <br>
+    <br>
+    <p>記事内容</p>
+    <textarea name="content"><%= @article.content %></textarea>
+    <br>
+    <br>
+    <input type="submit" value="Update Article">
+    <br>
+    <br>
+  <% end %>
+
+  <div class="clear"></div>
+</div>

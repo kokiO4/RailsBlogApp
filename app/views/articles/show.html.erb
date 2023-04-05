@@ -1,0 +1,30 @@
+<div id="title">
+  <div>
+    <p>
+      <%= "#{@article.created_at.to_s(:datetime_jp)} / 書いた人:#{@user.email}" %>
+    </p>
+    <h1>
+      <%= @article.title %>
+    </h1>
+  </div>
+</div>
+
+<div id="article_wrap">
+  <div id="content">
+    <%= @article.content %>
+  </div>
+
+
+  <div id="sidebar">
+    <h2>★PV数ランキング</h2>
+      <ul>
+        <% @ranking_articles.each do |ranking_article| %>
+          <li>
+            <%= link_to(ranking_article.title, "/articles/#{ranking_article.id}") %>
+            <span>(<%= REDIS.zscore("articles", ranking_article.id).to_i %>PV)</span>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="clear"></div>
+</div>

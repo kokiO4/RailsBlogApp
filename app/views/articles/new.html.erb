@@ -1,0 +1,17 @@
+<div id="article_wrap">
+  <%= form_tag('/articles/create') do %>
+    <p>タイトル</p>
+    <input name="title">
+    <br>
+    <br>
+    <p>記事内容</p>
+    <textarea name="content"></textarea>
+    <br>
+    <br>
+    <input type="submit" value="Create Article">
+    <br>
+    <br>
+  <% end %>
+
+  <div class="clear"></div>
+</div>
